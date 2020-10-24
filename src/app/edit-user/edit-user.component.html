@@ -1,0 +1,44 @@
+<div style="margin-left: 5%;">
+    <form>
+        <table>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <td>
+                    <input type = "text" #fname pattern="[a-zA-Z]" required value="{{userDetails.fname}}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Last Name
+                </th>
+                <td>
+                    <input type = "text" #lname pattern="[a-zA-Z]" required value="{{userDetails.lname}}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    Contact No.
+                </th>
+                <td>
+                    <input type = "number" #number pattern="[0-9]{10}" required value="{{userDetails.num}}"/>
+                </td>
+            </tr>
+
+            
+           
+            <tr>
+                <td colspan="1">
+                    <button type='button' class="btn btn-success" (click)="updateRecord(fname.value,lname.value,number.value)">Add</button>
+                </td>
+                <td colspan="1">
+                    <button type='button' class="btn btn-warning" routerLink="">Go back</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+

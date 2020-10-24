@@ -1,0 +1,47 @@
+<div style="padding-left: 2%;">
+    <button class="btn btn-success btn-md" (click)="AddUser()">Add Contact</button>
+    </div>
+    
+    <br>
+    <div style="padding-left: 2%;">
+    <input type="text" [(ngModel)]="term" placeholder="Search..">
+    </div>
+    <br>
+    <table class="table" border="4" style="margin-left: 2%;" cellspacing="10" cellpadding="10">
+        <tr >
+            <th style="text-align: center;" [class.active]="order === 'fname'"
+            (click)="setOrder('fname')">
+                First Name
+                <span [hidden]="reverse">▼</span
+                ><span [hidden]="!reverse">▲</span>
+            </th>
+            <th style="text-align: center;" [class.active]="order === 'lname'"
+            (click)="setOrder('lname')">
+                Last Name
+                <span [hidden]="reverse">▼</span
+                    ><span [hidden]="!reverse">▲</span>
+            </th>
+            <th style="text-align: center;"  [class.active]="order === 'num'"
+            (click)="setOrder('num')">
+                Contact Number
+                <span [hidden]="reverse">▼</span
+                    ><span [hidden]="!reverse">▲</span>
+            </th>
+            <th style="text-align: center;">
+                Delete
+            </th>    
+            <th style="text-align: center;">
+                Edit
+            </th>  
+        </tr>
+    
+        <tr *ngFor = "let i of allContacts |filter:term | orderBy: order:reverse">
+            <td align="center">{{i.fname}}</td>
+            <td align="center">{{i.lname}}</td>
+            <td align="center">{{i.num}}</td>
+            <td align="center"><button class="btn btn-danger btn-md" (click)="deleteDetails(i)" (click)="ngOnInit()"><b>X</b></button></td>
+            <td align="center"><button class="btn btn-warning btn-md" (click)="editDetails(i.id)" ><b>Edit</b></button></td>
+    
+        </tr>
+    </table>
+    
